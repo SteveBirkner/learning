@@ -21,7 +21,7 @@ mongoose.connect('mongodb://localhost/project');
 require('./models/user');
 require('./models/course');
 require('./models/assignment');
-require('./models/state');
+require('./models/crime');
 app.use(flash());
 var User = mongoose.model("User");
 passport.use(new LocalStrategy(User.authenticate()));

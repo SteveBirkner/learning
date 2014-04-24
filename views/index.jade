@@ -7,12 +7,10 @@ block content
     table
       thead
         tr 
-          th Course ID
-          th Course Name
+          th Crime ID
+          th Crime Name
       tbody
-        each course, i in courses
+        each crime, i in crimes
           tr(class=(i % 2 == 0) ? 'odd' : 'even')
-           td= course.cid
-           td 
-              a(href='/courses/' + course._id) #{course.title}
+           td= crime.cid
 

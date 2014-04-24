@@ -5,14 +5,14 @@ var courses = require('./controllers/courses');
 var passport = require('passport');
 var users = require('./controllers/users');
 var admin = require('./controllers/admin');
-var state = require('./controllers/state');
+var crime = require('./controllers/crime');
 //var assignments = require('./controllers/assignments');
 
   app.get('/', index.index);
   app.get('/admin',ensureAuthenticated , admin.main); 
   app.get('/courses', courses.list);
   app.get('/api/courses', courses.jsonlist);
-  app.get('/api/state', state.jsonlist);
+  app.get('/api/crime', crime.jsonlist);
   app.get('/courses/:cid', courses.findById);
   app.post('/courses/add', courses.add);
   app.post('/courses/update/:cid', courses.update); 
