@@ -4,21 +4,21 @@
  */
 
 var mongoose = require('mongoose')
-  , Crime = mongoose.model('Crime');
+  , Course = mongoose.model('Course');
 
 
 exports.index = function(req, res) {
-  var crime = new Crime();
-      crime.State = 'test';
-      crime.Type = 'Introduction to Building Websites';
-      crime.save(function (err) {
+  var course = new Course();
+      course.cid = 'IS 117';
+      course.title = 'Introduction to Building Websites';
+      course.save(function (err) {
         console.log(err);
       });
   
-  Crime.find({}, function(err, crimes) {
+  Course.find({}, function(err, courses) {
     res.render('index', { 
       title: 'Personal Learning Platform', 
-      crimes: crimes 
+      courses: courses 
     });
  });
 }

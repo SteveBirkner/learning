@@ -10,7 +10,7 @@ block content
           th Crime ID
           th Crime Name
       tbody
-        each crime, i in crimes
+        each course, i in courses
           tr(class=(i % 2 == 0) ? 'odd' : 'even')
-           td= crime.cid
+           td= course.cid
 

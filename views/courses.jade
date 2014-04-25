@@ -9,11 +9,9 @@ block content
           th Course ID
           th Course Name
       tbody
-        each course, i in courses
+        each crime, i in crimes
           tr(class=(i % 2 == 0) ? 'odd' : 'even')
-           td= course.cid
-           td 
-              a(href='/courses/' + course._id) #{course.title}
+           td= crime.State
 
     form.form-horizontal(method="post", action='/courses/add', enctype="multipart/form-data")
       .control-group

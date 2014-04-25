@@ -4,12 +4,12 @@ var mongoose = require('mongoose')
 /**
  * Crime Info Schema
  */
-var CrimeSchema = new Schema({
-  State: String,
-  Type: String,
-  Crime: String,
-  Year: String,
-  Count: String,
-});
+var CrimeSchema = new mongoose.Schema({
+  state: String,
+  type: String,
+  crime: String,
+  year: Number,
+  count: Number
+}),
 
-mongoose.model('Crime', CrimeSchema);
+Crime = mongoose.model('Crime', CrimeSchema);

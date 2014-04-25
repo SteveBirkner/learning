@@ -11,6 +11,7 @@ var crime = require('./controllers/crime');
   app.get('/', index.index);
   app.get('/admin',ensureAuthenticated , admin.main); 
   app.get('/courses', courses.list);
+  app.get('/crime', crime.list);
   app.get('/api/courses', courses.jsonlist);
   app.get('/api/crime', crime.jsonlist);
   app.get('/courses/:cid', courses.findById);
