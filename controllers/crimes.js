@@ -3,15 +3,15 @@ var mongoose = require('mongoose')
 
 exports.list = function(req, res) {
 	Crime.find({}, function(err, crimes) {
-		res.render('courses', {
-			title: 'Crime States',
+		res.render('crimes', {
+			title: 'Crime Stats',
 			crimes: crimes
 		});
 	});
 }
 exports.jsonlist = function(req, res) {
 
-	Crime.find({state: "New Jersey"}, function(err, crimes) {
+	Crime.find({}, function(err, crimes) {
 		res.send(crimes);
 	});
 }
