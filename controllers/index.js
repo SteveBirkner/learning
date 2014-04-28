@@ -4,21 +4,26 @@
  */
 
 var mongoose = require('mongoose')
-  , Course = mongoose.model('Course');
+  , Crime = mongoose.model('Crime');
 
 
 exports.index = function(req, res) {
-  var course = new Course();
-      course.cid = 'IS 117';
-      course.title = 'Introduction to Building Websites';
-      course.save(function (err) {
-        console.log(err);
-      });
+  res.render('index', {title: 'Homepage'});
   
-  Course.find({}, function(err, courses) {
+ /* var crime = new Crime();
+      crime.state = 'test';
+      crime.kind = 'test';
+      crime.namecrime = 'test';
+      crime.year = 1999;
+      crime.count = 100;
+      crime.save(function (err) {
+        console.log(err);
+      }); */
+
+ /* Course.find({}, function(err, courses) {
     res.render('index', { 
       title: 'Personal Learning Platform', 
       courses: courses 
     });
- });
+ }); */
 }

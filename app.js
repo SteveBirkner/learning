@@ -18,10 +18,10 @@ var config = require('./config/config')[env];
 //Bootstrap db connection
 mongoose.connect('mongodb://localhost/project');
 //mongoose.connect('mongodb://localhost/learning');
+require('./models/crime');
 require('./models/user');
 require('./models/course');
 require('./models/assignment');
-require('./models/crime');
 app.use(flash());
 var User = mongoose.model("User");
 passport.use(new LocalStrategy(User.authenticate()));

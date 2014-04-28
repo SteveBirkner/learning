@@ -5,15 +5,15 @@ var courses = require('./controllers/courses');
 var passport = require('passport');
 var users = require('./controllers/users');
 var admin = require('./controllers/admin');
-var crime = require('./controllers/crime');
+var crimes = require('./controllers/crimes');
 //var assignments = require('./controllers/assignments');
 
   app.get('/', index.index);
   app.get('/admin',ensureAuthenticated , admin.main); 
   app.get('/courses', courses.list);
-  app.get('/crime', crime.list);
+  app.get('/crimes', crimes.list);
   app.get('/api/courses', courses.jsonlist);
-  app.get('/api/crime', crime.jsonlist);
+  app.get('/api/crimes', crimes.jsonlist);
   app.get('/courses/:cid', courses.findById);
   app.post('/courses/add', courses.add);
   app.post('/courses/update/:cid', courses.update); 

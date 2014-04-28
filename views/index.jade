@@ -4,13 +4,9 @@ block content
   h1= title
   p Welcome to #{title}
   div
-    table
-      thead
-        tr 
-          th Crime ID
-          th Crime Name
-      tbody
-        each course, i in courses
-          tr(class=(i % 2 == 0) ? 'odd' : 'even')
-           td= course.cid
+    a(href='/crimes') Crimes Table
+    br
+    a(href='/api/crimes') Crimes API
+    br
+    a(href='/map') Map
 
