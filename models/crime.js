@@ -8,8 +8,8 @@ var CrimeSchema = new Schema({
   state: String,
   kind: String,
   namecrime: String,
-  year: Number,
-  count: Number,
+  year: String,
+  count: String,
 });
 
 var Crime = mongoose.model('Crime', CrimeSchema);
