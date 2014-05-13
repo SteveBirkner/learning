@@ -1,27 +1,45 @@
-
-$.ajax({
-    url: "/api/crimes",
-    type: "GET",
-    dataType: "json",
-    timeout: 15000,
-    success: function(data){
-        console.log(data);
-    },
-    error: function() {
-        console.log("failed");
-    },
-});
-
-
-
 var map;
 
+var chart;
+var chartData = {};
+
+chartData.usaHigh = [
+    { source: "Murder", energy: 13882},
+    { source: "Rape", energy: 12653},
+    { source: "Grand Theft Auto", energy: 13278},
+    { source: "Robbery", energy: 1610},
+    { source: "Manslaughter", energy: 1740}];
+
+chartData["US-NJ"] = [
+    { source: "Murder", energy: 3882},
+    { source: "Rape", energy: 153},
+    { source: "Grand Theft Auto", energy: 278},
+    { source: "Robbery", energy: 610},
+    { source: "Manslaughter", energy: 740}];
 
 
 
 AmCharts.ready(function() {
 
+    chart = new AmCharts.AmPieChart();
 
+    // title of the chart
+    chart.addLabel("0", "!20", "Crime Break Down", "center", 16);
+
+    chart.backgroundAlpha = 0.4;
+    chart.backgroundColor = "#000000";
+    chart.dataProvider = chartData.usaHigh;
+    chart.titleField = "source";
+    chart.valueField = "energy";
+    chart.sequencedAnimation = true;
+    chart.startEffect = "elastic";
+    chart.labelsEnabled = false;
+    chart.labelText = "[[title]]";
+    chart.startDuration = 2;
+    chart.labelRadius = 10;
+
+    // WRITE                                 
+    chart.write("chartdiv");
         // create AmMap object
         var map = new AmCharts.AmMap();
         // set path to images
@@ -42,6 +60,7 @@ AmCharts.ready(function() {
             value: 5130632
         }, {
             id: "US-AR",
+            name: "Arizona",
             value: 2673400
         }, {
             id: "US-CA",
@@ -186,7 +205,9 @@ AmCharts.ready(function() {
 
         }; 
         // pass data provider to the map object
-        
+        dataProvider.areas = [
+            { title: "New Jersey", id: "US-NJ", selectable: true }
+        ];
         map.dataProvider = dataProvider;
 
         /* create areas settings
@@ -210,7 +231,7 @@ AmCharts.ready(function() {
            chart.clearLabels();
            chart.addLabel("0", "!20", event.mapObject.title + " Crime Stats", "center", 16);
            chart.validateData();
-           alert(event.mapObject.title);
+         
        
         });
     });
