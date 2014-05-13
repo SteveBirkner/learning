@@ -11,7 +11,7 @@ exports.list = function(req, res) {
 }
 exports.jsonlist = function(req, res) {
 
-	Crime.find({year: "2005", namecrime: "Murder and nonnegligent Manslaughter"}, function(err, crimes) {
+	Crime.find({year: "2005"}, function(err, crimes) {
 		res.send(crimes);
 	});
 }
